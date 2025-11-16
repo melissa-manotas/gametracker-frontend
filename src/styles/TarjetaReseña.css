@@ -1,0 +1,132 @@
+.tarjeta-reseña {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 2px solid rgba(167, 139, 250, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta-reseña:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-neon);
+  border-color: var(--accent-cyan);
+}
+
+.reseña-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.reseña-juego-info h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.reseña-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reseña-rating .star {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.reseña-rating .star.filled {
+  color: var(--accent-orange);
+}
+
+.rating-numero {
+  font-weight: 700;
+  color: var(--accent-orange);
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.reseña-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-recomendado {
+  background: linear-gradient(135deg, var(--accent-green), #22c55e);
+  color: white;
+}
+
+.badge-dificultad {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid;
+}
+
+.reseña-contenido {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent-purple);
+}
+
+.reseña-contenido p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.reseña-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(167, 139, 250, 0.2);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.reseña-stats {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.reseña-acciones {
+  display: flex;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .reseña-header {
+    flex-direction: column;
+  }
+
+  .reseña-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reseña-acciones {
+    width: 100%;
+  }
+
+  .reseña-acciones button {
+    flex: 1;
+  }
+}
