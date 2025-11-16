@@ -1,0 +1,28 @@
+.reseñas-page {
+  padding: 2rem 0;
+}
+
+.reseñas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.reseñas-lista {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .reseñas-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reseñas-header button {
+    width: 100%;
+  }
+}
