@@ -29,10 +29,7 @@ export const crearJuego = async (juegoData) => {
   try {
     const response = await fetch(`${API_URL}/juegos`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(juegoData),
+      body: juegoData // FormData
     });
     if (!response.ok) throw new Error('Error al crear juego');
     return await response.json();
@@ -76,7 +73,7 @@ export const eliminarJuego = async (id) => {
 
 export const obtenerReseñas = async () => {
   try {
-    const response = await fetch(`${API_URL}/reseñas`);
+    const response = await fetch(`${API_URL}/resenas`);
     if (!response.ok) throw new Error('Error al obtener reseñas');
     return await response.json();
   } catch (error) {
@@ -87,7 +84,7 @@ export const obtenerReseñas = async () => {
 
 export const obtenerReseñasPorJuego = async (juegoId) => {
   try {
-    const response = await fetch(`${API_URL}/reseñas/juego/${juegoId}`);
+    const response = await fetch(`${API_URL}/resenas/juego/${juegoId}`);
     if (!response.ok) throw new Error('Error al obtener reseñas del juego');
     return await response.json();
   } catch (error) {
@@ -98,7 +95,7 @@ export const obtenerReseñasPorJuego = async (juegoId) => {
 
 export const crearReseña = async (reseñaData) => {
   try {
-    const response = await fetch(`${API_URL}/reseñas`, {
+    const response = await fetch(`${API_URL}/resenas`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +112,7 @@ export const crearReseña = async (reseñaData) => {
 
 export const actualizarReseña = async (id, reseñaData) => {
   try {
-    const response = await fetch(`${API_URL}/reseñas/${id}`, {
+    const response = await fetch(`${API_URL}/resenas/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -132,7 +129,7 @@ export const actualizarReseña = async (id, reseñaData) => {
 
 export const eliminarReseña = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/reseñas/${id}`, {
+    const response = await fetch(`${API_URL}/resenas/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) throw new Error('Error al eliminar reseña');

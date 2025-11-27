@@ -34,6 +34,11 @@ function ListaReseñas({ reseñas, juegos, onAgregarReseña, onEditarReseña, on
 
   // Función para encontrar el juego de una reseña
   const obtenerJuego = (juegoId) => {
+    // Si juegoId es un objeto (poblado desde el backend), usa directamente
+    if (typeof juegoId === 'object' && juegoId !== null) {
+      return juegoId;
+    }
+    // Si es un string, busca en el array de juegos
     return juegos.find(j => j._id === juegoId);
   };
 

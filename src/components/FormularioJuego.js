@@ -8,10 +8,10 @@ function FormularioJuego({ juegoEditando, onGuardar, onCancelar }) {
     plataforma: '',
     añoLanzamiento: new Date().getFullYear(),
     desarrollador: '',
-    imagenPortada: '',
     descripcion: '',
     completado: false
   });
+  const [imagenFile, setImagenFile] = useState(null);
 
   useEffect(() => {
     if (juegoEditando) {
@@ -27,9 +27,20 @@ function FormularioJuego({ juegoEditando, onGuardar, onCancelar }) {
     });
   };
 
+  const handleFileChange = (e) => {
+    setImagenFile(e.target.files[0]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onGuardar(formData);
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+    if (imagenFile) {
+      data.append('imagenPortada', imagenFile);
+    }
+    onGuardar(data);
     // Resetear formulario
     setFormData({
       titulo: '',
@@ -37,10 +48,10 @@ function FormularioJuego({ juegoEditando, onGuardar, onCancelar }) {
       plataforma: '',
       añoLanzamiento: new Date().getFullYear(),
       desarrollador: '',
-      imagenPortada: '',
       descripcion: '',
       completado: false
     });
+    setImagenFile(null);
   };
 
   return (
@@ -139,14 +150,13 @@ function FormularioJuego({ juegoEditando, onGuardar, onCancelar }) {
           </div>
 
           <div className="form-group">
-            <label className="form-label">URL de la Imagen de Portada</label>
+            <label className="form-label">Imagen de Portada</label>
             <input
-              type="url"
+              type="file"
               name="imagenPortada"
-              value={formData.imagenPortada}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleFileChange}
               className="form-input"
-              placeholder="https://ejemplo.com/imagen.jpg"
             />
           </div>
 
